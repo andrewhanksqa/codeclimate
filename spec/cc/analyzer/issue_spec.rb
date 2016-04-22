@@ -27,6 +27,8 @@ module CC::Analyzer
     end
 
     describe "#fingerprint" do
+      include EnvHelpers
+
       it "adds a fingerprint when it is missing" do
         issue = Issue.new(output.to_json)
 
@@ -42,13 +44,11 @@ module CC::Analyzer
       end
 
       it "uses the source fingerprint if env variable is present" do
-        ENV["CODECLIMATE_SOURCE_FINGERPRINT"] = "true"
+        with_env("CODECLIMATE_SOURCE_FINGERPRINT", "true") do
+          issue = Issue.new(output.to_json)
 
-        issue = Issue.new(output.to_json)
-
-        expect(issue.fingerprint).to eq "ad79867c19494d6a1a567f804fc575ca"
-
-        ENV.delete("CODECLIMATE_SOURCE_FINGERPRINT")
+          expect(issue.fingerprint).to eq "ad79867c19494d6a1a567f804fc575ca"
+        end
       end
     end
 
