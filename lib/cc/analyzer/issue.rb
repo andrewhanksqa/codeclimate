@@ -34,15 +34,23 @@ module CC
         end
       end
 
+      def path
+        parsed_output.fetch("location", {}).fetch("path", "")
+      end
+
+      def lines
+        parsed_output.fetch("location", {})["lines"]
+      end
+
       private
 
       attr_reader :output
 
       def default_fingerprint
         if ENV["CODECLIMATE_SOURCE_FINGERPRINT"]
-          SourceFingerprint.new(parsed_output).compute
+          SourceFingerprint.new(self).compute
         else
-          PathFingerprint.new(parsed_output).compute
+          PathFingerprint.new(self).compute
         end
       end
 

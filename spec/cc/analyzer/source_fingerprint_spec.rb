@@ -17,8 +17,8 @@ module CC::Analyzer
           "begin" => 2,
           "end" => 4
         }
-
-        fingerprint = SourceFingerprint.new(output)
+        issue = Issue.new(output.to_json)
+        fingerprint = SourceFingerprint.new(issue)
 
         expect(fingerprint.compute).to eq("30f53a688723a198cd83d3e3377da7d0")
       end
@@ -28,8 +28,8 @@ module CC::Analyzer
           "begin" => 5,
           "end" => 100
         }
-
-        fingerprint = SourceFingerprint.new(output)
+        issue = Issue.new(output.to_json)
+        fingerprint = SourceFingerprint.new(issue)
 
         expect(fingerprint.compute).to eq("84fbb18391c45d63ddc6f8d528d18ae6")
       end
@@ -39,8 +39,8 @@ module CC::Analyzer
           "begin" => 1000,
           "end" => 1000
         }
-
-        fingerprint = SourceFingerprint.new(output)
+        issue = Issue.new(output.to_json)
+        fingerprint = SourceFingerprint.new(issue)
 
         expect(fingerprint.compute).to eq("eef541a28f83417a45808139d58b631d")
       end
