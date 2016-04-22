@@ -52,17 +52,11 @@ module CC
       end
 
       def extract_source
-        contents = ""
-
         File.open(path) do |file|
-          file.each_line.with_index do |line, line_number|
-            if line_range.include?(line_number + 1)
-              contents << line
-            end
+          file.each_line.with_object("").with_index do |(line, memo), number|
+            memo << line if line_range.include?(number + 1)
           end
         end
-
-        contents
       end
     end
   end
