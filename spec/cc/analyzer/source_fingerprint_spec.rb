@@ -20,7 +20,7 @@ module CC::Analyzer
 
         fingerprint = SourceFingerprint.new(output)
 
-        expect(fingerprint.compute).to eq("25949d75bcd87691e1fc5ec0797ec560")
+        expect(fingerprint.compute).to eq("30f53a688723a198cd83d3e3377da7d0")
       end
 
       it "incorporates partially available source in the fingerprint" do
@@ -31,7 +31,7 @@ module CC::Analyzer
 
         fingerprint = SourceFingerprint.new(output)
 
-        expect(fingerprint.compute).to eq("3a291ef72c949c93598ae81ef8a4dc1c")
+        expect(fingerprint.compute).to eq("84fbb18391c45d63ddc6f8d528d18ae6")
       end
 
       it "only incorporates source if source is available" do
@@ -42,7 +42,7 @@ module CC::Analyzer
 
         fingerprint = SourceFingerprint.new(output)
 
-        expect(fingerprint.compute).to eq("dc2268e4e6b238fde612a9826dcdbbb2")
+        expect(fingerprint.compute).to eq("eef541a28f83417a45808139d58b631d")
       end
     end
   end

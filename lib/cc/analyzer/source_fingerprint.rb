@@ -9,19 +9,15 @@ module CC
 
       def compute
         md5 = Digest::MD5.new
-        md5 << key
+        md5 << path
+        md5 << check_name
+        md5 << source.gsub(/\s+/, "") if source
         md5.hexdigest
       end
 
       private
 
       attr_reader :output
-
-      def key
-        key = "#{path}|#{check_name}"
-        key << "|#{source.gsub(/\s+/, "")}" if source
-        key
-      end
 
       def check_name
         output["check_name"]

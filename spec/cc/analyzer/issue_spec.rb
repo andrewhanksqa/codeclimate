@@ -47,7 +47,7 @@ module CC::Analyzer
         with_env("CODECLIMATE_SOURCE_FINGERPRINT", "true") do
           issue = Issue.new(output.to_json)
 
-          expect(issue.fingerprint).to eq "ad79867c19494d6a1a567f804fc575ca"
+          expect(issue.fingerprint).to eq "433fae1189b03bcd9153dc8dce209fa5"
         end
       end
     end
