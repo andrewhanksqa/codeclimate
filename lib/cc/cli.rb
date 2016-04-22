@@ -15,6 +15,7 @@ module CC
     autoload :Init, "cc/cli/init"
     autoload :PathFingerprint, "cc/cli/path_fingerprint"
     autoload :Runner, "cc/cli/runner"
+    autoload :SourceFingerprint, "cc/cli/source_fingerprint"
     autoload :Test, "cc/cli/test"
     autoload :ValidateConfig, "cc/cli/validate_config"
     autoload :Version, "cc/cli/version"
