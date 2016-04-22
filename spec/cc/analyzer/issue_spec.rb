@@ -40,6 +40,16 @@ module CC::Analyzer
 
         expect(issue.fingerprint).to eq "foo"
       end
+
+      it "uses the source fingerprint if env variable is present" do
+        ENV["CODECLIMATE_SOURCE_FINGERPRINT"] = "true"
+
+        issue = Issue.new(output.to_json)
+
+        expect(issue.fingerprint).to eq "ad79867c19494d6a1a567f804fc575ca"
+
+        ENV.delete("CODECLIMATE_SOURCE_FINGERPRINT")
+      end
     end
 
     describe "#as_json" do

@@ -39,7 +39,11 @@ module CC
       attr_reader :output
 
       def default_fingerprint
-        ::CC::CLI::PathFingerprint.new(parsed_output).compute
+        if ENV["CODECLIMATE_SOURCE_FINGERPRINT"]
+          ::CC::CLI::SourceFingerprint.new(parsed_output).compute
+        else
+          ::CC::CLI::PathFingerprint.new(parsed_output).compute
+        end
       end
 
       def parsed_output
