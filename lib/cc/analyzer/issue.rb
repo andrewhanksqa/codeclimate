@@ -40,9 +40,9 @@ module CC
 
       def default_fingerprint
         if ENV["CODECLIMATE_SOURCE_FINGERPRINT"]
-          ::CC::CLI::SourceFingerprint.new(parsed_output).compute
+          SourceFingerprint.new(parsed_output).compute
         else
-          ::CC::CLI::PathFingerprint.new(parsed_output).compute
+          PathFingerprint.new(parsed_output).compute
         end
       end
 

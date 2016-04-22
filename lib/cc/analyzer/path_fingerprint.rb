@@ -1,7 +1,7 @@
 require "digest/md5"
 
 module CC
-  module CLI
+  module Analyzer
     class PathFingerprint
       def initialize(output)
         @output = output

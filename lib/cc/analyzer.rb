@@ -29,8 +29,10 @@ module CC
     autoload :LocationDescription, "cc/analyzer/location_description"
     autoload :LoggingContainerListener, "cc/analyzer/logging_container_listener"
     autoload :MountedPath, "cc/analyzer/mounted_path"
+    autoload :PathFingerprint, "cc/analyzer/path_fingerprint"
     autoload :RaisingContainerListener, "cc/analyzer/raising_container_listener"
     autoload :SourceBuffer, "cc/analyzer/source_buffer"
+    autoload :SourceFingerprint, "cc/analyzer/source_fingerprint"
     autoload :StatsdContainerListener, "cc/analyzer/statsd_container_listener"
     autoload :Validation, "cc/analyzer/validation"
 

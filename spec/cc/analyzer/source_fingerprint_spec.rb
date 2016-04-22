@@ -1,7 +1,6 @@
 require "spec_helper"
-require "cc/yaml"
 
-module CC::CLI
+module CC::Analyzer
   describe SourceFingerprint do
     describe "#compute" do
       let(:output) do
