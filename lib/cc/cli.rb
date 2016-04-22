@@ -13,6 +13,7 @@ module CC
     autoload :Engines, "cc/cli/engines"
     autoload :Help, "cc/cli/help"
     autoload :Init, "cc/cli/init"
+    autoload :PathFingerprint, "cc/cli/path_fingerprint"
     autoload :Runner, "cc/cli/runner"
     autoload :Test, "cc/cli/test"
     autoload :ValidateConfig, "cc/cli/validate_config"
