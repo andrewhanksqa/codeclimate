@@ -13,15 +13,15 @@ module CC
         md5.hexdigest
       end
 
+      private
+
+      attr_reader :output
+
       def key
         key = "#{path}|#{check_name}"
         key << "|#{source.gsub(/\s+/, "")}" if source
         key
       end
-
-      private
-
-      attr_reader :output
 
       def check_name
         output["check_name"]

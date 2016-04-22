@@ -20,11 +20,10 @@ module CC::Analyzer
 
         fingerprint = SourceFingerprint.new(output)
 
-        expect(fingerprint.key).to eq("spec/fixtures/source.rb|Check/Name|defrunp\"Runrunrun!\"end")
         expect(fingerprint.compute).to eq("25949d75bcd87691e1fc5ec0797ec560")
       end
 
-      it "includes partial source for fingerprint key" do
+      it "incorporates partially available source in the fingerprint" do
         output["location"]["lines"] = {
           "begin" => 5,
           "end" => 100
@@ -32,11 +31,10 @@ module CC::Analyzer
 
         fingerprint = SourceFingerprint.new(output)
 
-        expect(fingerprint.key).to eq("spec/fixtures/source.rb|Check/Name|end")
         expect(fingerprint.compute).to eq("3a291ef72c949c93598ae81ef8a4dc1c")
       end
 
-      it "does not include source in the key if not readable" do
+      it "only incorporates source if source is available" do
         output["location"]["lines"] = {
           "begin" => 1000,
           "end" => 1000
@@ -44,7 +42,6 @@ module CC::Analyzer
 
         fingerprint = SourceFingerprint.new(output)
 
-        expect(fingerprint.key).to eq("spec/fixtures/source.rb|Check/Name")
         expect(fingerprint.compute).to eq("dc2268e4e6b238fde612a9826dcdbbb2")
       end
     end
