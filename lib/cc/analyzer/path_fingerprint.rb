@@ -9,12 +9,10 @@ module CC
 
       def compute
         md5 = Digest::MD5.new
-        md5 << key
+        md5 << path
+        md5 << "|"
+        md5 << check_name.to_s
         md5.hexdigest
-      end
-
-      def key
-        "#{path}|#{check_name}"
       end
 
       private
